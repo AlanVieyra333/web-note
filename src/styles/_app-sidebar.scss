@@ -1,0 +1,221 @@
+.app-sidebar {
+  transition: all 0.3s ease;
+  padding: 1rem 0 0.25rem;
+  background: $app-sidebar-color;
+  color: $light-font-color;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid darken($app-sidebar-color, 10%);
+  overflow-x: hidden;
+  z-index: 5;
+
+  &-synced {
+    display: block;
+    border-top: 1px solid darken($app-sidebar-color, 5%);
+    border-right: 1px solid darken($app-sidebar-color, 10%);
+    position: absolute;
+    bottom: 0;
+    width: $app-sidebar-width;
+    padding: 0.5rem;
+    background: $app-sidebar-color;
+    z-index: 6;
+
+    .last-synced {
+      display: flex;
+      align-items: center;
+      color: lighten($app-sidebar-color, 30%);
+      font-size: 0.75rem;
+    }
+  }
+
+  &-link {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    &:hover {
+      background: lighten($app-sidebar-color, 5%);
+    }
+
+    &.active {
+      color: white;
+      background: darken($app-sidebar-color, 5%);
+
+      svg {
+        stroke: $primary;
+      }
+    }
+  }
+
+  &-main {
+    flex: 1;
+    position: relative;
+    padding-bottom: 2rem;
+
+    p {
+      padding: 0 0.5rem;
+    }
+
+    h2 {
+      margin: 0;
+      color: lighten($app-sidebar-color, 20%);
+      text-transform: uppercase;
+      font-size: 0.7rem;
+    }
+  }
+
+  &-icon {
+    margin-right: 0.75rem;
+  }
+
+  &-actions {
+    box-sizing: content-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    max-width: calc(#{$app-sidebar-width} - 10px);
+  }
+
+  .action-button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: darken($app-sidebar-color, 3%);
+    padding: 0.7rem;
+    margin: 0 0.5rem;
+    border: none !important;
+
+    span {
+      height: 20px;
+      width: 20px;
+    }
+
+    &:hover,
+    &:focus {
+      background: $primary;
+      outline: none;
+
+      .action-button-icon,
+      .action-button-icon {
+        stroke: white;
+      }
+    }
+
+    .action-button-icon {
+      stroke: $light-font-color;
+    }
+  }
+
+  .category {
+    &-title {
+      margin-top: 1rem;
+      padding: 0.5rem;
+    }
+
+    &-error-message {
+      display: flex;
+      margin: 0.5rem;
+      color: $error;
+      font-size: 0.85rem;
+    }
+
+    &-list {
+      font-size: 0.9rem;
+
+      &-each {
+        cursor: pointer;
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &:hover {
+          background: lighten($app-sidebar-color, 5%);
+
+          .category-options {
+            color: lighten($app-sidebar-color, 20%);
+          }
+        }
+
+        &.active {
+          background: darken($app-sidebar-color, 5%);
+          color: white;
+
+          .category-list-name {
+            svg {
+              stroke: $primary;
+            }
+          }
+        }
+      }
+
+      &-name {
+        display: flex;
+        align-items: center;
+      }
+
+      .category-options {
+        color: transparent;
+        z-index: 1;
+        display: flex;
+        cursor: pointer;
+      }
+    }
+
+    &-button {
+      cursor: pointer;
+      -webkit-appearance: none;
+      display: flex;
+      align-items: center;
+      padding: 0;
+      color: darken($light-font-color, 25%);
+      background: transparent;
+      font-size: 0.8rem;
+      border: none;
+      line-height: 1;
+      margin: 1rem 0.5rem;
+
+      svg {
+        margin-right: 0.75rem;
+      }
+
+      &:hover {
+        color: white;
+
+        svg {
+          stroke: white;
+        }
+      }
+    }
+  }
+
+  [type='text'] {
+    -webkit-appearance: none;
+    border-radius: 0;
+    background: darken($app-sidebar-color, 5%);
+    border: none;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    color: #eee;
+    line-height: 1;
+    margin: 0.5rem 0.5rem 0.5rem 1rem;
+    width: 150px;
+
+    &.category-edit {
+      padding: 0;
+      width: auto;
+      max-width: 100px;
+      margin: 0;
+    }
+
+    &:hover,
+    &:focus {
+      border: none;
+    }
+  }
+}
